@@ -64,7 +64,6 @@ header {
 }
 .blueberry .slides li img {
   max-width: 100% !important;
-  height: 100% !important;
 }
 .blueberry .pager li { display: inline-block; }
 .blueberry .pager li a,

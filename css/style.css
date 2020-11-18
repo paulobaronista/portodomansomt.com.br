@@ -238,9 +238,8 @@ header {
 	float: left;
 }
 .box-home {
-	width: 1350px;
-	left: 50%;
-	margin: 118px 0 0 -675px;
+	width: 100%;
+	margin-top: 118px;
 	position: relative;
 	float: left;
 }
@@ -260,8 +259,6 @@ header {
 }
 .blueberry .slides li img {
 	display: block;
-	/* width: 1345px;
-	height: 621px; */
 	max-width: none;
 }
 .blueberry .slides li.active {
