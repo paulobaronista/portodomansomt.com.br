@@ -246,7 +246,7 @@ $(document).ready(function(){
                  success: function( data )  
                    { 
                      
-                    $(location).attr('href', 'http://www.portodomansomt.com.br/obrigado.html');
+                    $(location).attr('href', 'https://www.portodomansomt.com.br/obrigado.html');
 
                    },
                    data: {nome:$("input.statusnome").val(), email:$("input.statusemail").val(), phone:$("input.statusphone").val(), mensagem:$("textarea.statusMensagem").val()}

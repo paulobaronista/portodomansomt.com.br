@@ -10,6 +10,7 @@ $corpo .= "Telefone: ".$phone. "<br/>";
 $corpo .= "Mensagem: ".$mensagem."<br/>";
 $headers .= "MIME-Version: 1.0"."\n";
 $headers .= "Content-type:text/html;charset=iso-8859-1"."\n";
-mail("contato@portodomansomt.com.br, portodomanso@gmail.com, renata@spicycomm.com.br, felipe@spicycomm.com.br","Contato enviado pelo site www.portodomansomt.com.br",$corpo,$headers);
+// mail("paulobaronista@gmail.com, renata@spicycomm.com.br, imoveisgalvao@gmail.com","Contato enviado pelo site www.portodomansomt.com.br",$corpo,$headers);
+mail("paulobaronista@gmail.com","Contato enviado pelo site www.portodomansomt.com.br",$corpo,$headers);
 ?>
  

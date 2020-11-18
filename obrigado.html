@@ -1,6 +1,7 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
- <head>
+
+<head>
   <title>Porto do Manso - Vila Náutica</title>
   <meta charset="utf-8">
   <meta http-equiv="content-language" content="pt-br">
@@ -8,234 +9,32 @@
   <meta name="description" content="">
   <meta name="author" content="Spicycomm | SpicyWeb" />
   <meta name="Resource-type" content="Document" />
-  <link rel="stylesheet" type="text/css" href="css/style.css"/>
-  <link rel="stylesheet" type="text/css" href="fancybox/source/jquery.fancybox.css?v=2.1.5" />
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <script type="text/javascript" src="fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
-  <script type="text/javascript" src="js/site.js"></script>
-
-  <script type="text/javascript">
-    var ss = {
-      fixAllLinks: function() {
-        // Get a list of all links in the page
-        var allLinks = document.getElementsByTagName('a');
-        // Walk through the list
-        for (var i=0;i<allLinks.length;i++) {
-          var lnk = allLinks[i];
-          if ((lnk.href && lnk.href.indexOf('#') != -1) &&
-              ( (lnk.pathname == location.pathname) ||
-            ('/'+lnk.pathname == location.pathname) ) &&
-              (lnk.search == location.search)) {
-            // If the link is internal to the page (begins in #)
-            // then attach the smoothScroll function as an onclick
-            // event handler
-            ss.addEvent(lnk,'click',ss.smoothScroll);
-          }
-        }
-      },
-     
-      smoothScroll: function(e) {
-        // This is an event handler; get the clicked on element,
-        // in a cross-browser fashion
-        if (window.event) {
-          target = window.event.srcElement;
-        } else if (e) {
-          target = e.target;
-        } else return;
-     
-        // Make sure that the target is an element, not a text node
-        // within an element
-        if (target.nodeName.toLowerCase() != 'a') {
-          target = target.parentNode;
-        }
-     
-        // Paranoia; check this is an A tag
-        if (target.nodeName.toLowerCase() != 'a') return;
-     
-        // Find the <a name> tag corresponding to this href
-        // First strip off the hash (first character)
-        anchor = target.hash.substr(1);
-        // Now loop all A tags until we find one with that name
-        var allLinks = document.getElementsByTagName('a');
-        var destinationLink = null;
-        for (var i=0;i<allLinks.length;i++) {
-          var lnk = allLinks[i];
-          if (lnk.name && (lnk.name == anchor)) {
-            destinationLink = lnk;
-            break;
-          }
-        }
-        if (!destinationLink) destinationLink = document.getElementById(anchor);
-     
-        // If we didn't find a destination, give up and let the browser do
-        // its thing
-        if (!destinationLink) return true;
-     
-        // Find the destination's position
-        var destx = destinationLink.offsetLeft;
-        var desty = destinationLink.offsetTop;
-        var thisNode = destinationLink;
-        while (thisNode.offsetParent &&
-              (thisNode.offsetParent != document.body)) {
-          thisNode = thisNode.offsetParent;
-          destx += thisNode.offsetLeft;
-          desty += thisNode.offsetTop;
-        }
-     
-        // Stop any current scrolling
-        clearInterval(ss.INTERVAL);
-     
-        cypos = ss.getCurrentYPos();
-     
-        ss_stepsize = parseInt((desty-cypos)/ss.STEPS);
-        ss.INTERVAL =
-        setInterval('ss.scrollWindow('+ss_stepsize+','+desty+',"'+anchor+'")',10);
-     
-        // And stop the actual click happening
-        if (window.event) {
-          window.event.cancelBubble = true;
-          window.event.returnValue = false;
-        }
-        if (e && e.preventDefault && e.stopPropagation) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-      },
-     
-      scrollWindow: function(scramount,dest,anchor) {
-        wascypos = ss.getCurrentYPos();
-        isAbove = (wascypos < dest);
-        window.scrollTo(0,wascypos + scramount);
-        iscypos = ss.getCurrentYPos();
-        isAboveNow = (iscypos < dest);
-        if ((isAbove != isAboveNow) || (wascypos == iscypos)) {
-          // if we've just scrolled past the destination, or
-          // we haven't moved from the last scroll (i.e., we're at the
-          // bottom of the page) then scroll exactly to the link
-          window.scrollTo(0,dest);
-          // cancel the repeating timer
-          clearInterval(ss.INTERVAL);
-          // and jump to the link directly so the URL's right
-          location.hash = anchor;
-        }
-      },
-     
-      getCurrentYPos: function() {
-        if (document.body && document.body.scrollTop)
-          return document.body.scrollTop;
-        if (document.documentElement && document.documentElement.scrollTop)
-          return document.documentElement.scrollTop;
-        if (window.pageYOffset)
-          return window.pageYOffset;
-        return 0;
-      },
-     
-      addEvent: function(elm, evType, fn, useCapture) {
-        // addEvent and removeEvent
-        // cross-browser event handling for IE5+,  NS6 and Mozilla
-        // By Scott Andrew
-        if (elm.addEventListener){
-          elm.addEventListener(evType, fn, useCapture);
-          return true;
-        } else if (elm.attachEvent){
-          var r = elm.attachEvent("on"+evType, fn);
-          return r;
-        } else {
-          alert("Handler could not be removed");
-        }
-      }
-    }
-     
-    ss.STEPS = 25;
-     
-    ss.addEvent(window,"load",ss.fixAllLinks);
-     
-  </script>
-
-  <script type="text/javascript">
-    $(document).ready(function() {
-    $('.fancybox').fancybox();
-    });
-  </script>
-
-  <script>
-    $(window).load(function() {
-    $('.blueberry').blueberry();
-    });
-  </script>
-
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=2.1.6" />
+  <link rel="stylesheet" type="text/css" href="css/mobile.css?v=2.1.6" />
 </head>
-     
+
 <body>
+  <header>
+    <div id="box-logo">
+      <h1><a href="#a-home" title="Reserva Imperial">Reserva Imperial</a></h1>
 
-<header>
- <div id="box-logo">
-  <h1><a href="#a-home" title="Reserva Imperial">Reserva Imperial</a></h1>
+      <nav>
+        <ul id="menu">
+          <li title="Home"><a href="http://www.portodomansomt.com.br/#a-home">Home</a></li>
+          <li title="Localização"><a href="http://www.portodomansomt.com.br/#a-localizacao">Localização</a></li>
+          <li title="Projeto"><a href="http://www.portodomansomt.com.br/#a-projeto">Projeto</a></li>
+          <li title="Segurança / Lazer"><a href="http://www.portodomansomt.com.br/#a-seguranca-lazer">Segurança /
+              Lazer</a></li>
+          <li title="Contato"><a href="http://www.portodomansomt.com.br/#a-contato">Contato</a></li>
+        </ul>
+      </nav>
 
-  <nav>
-    <ul id="menu">
-     <li title="Home"><a href="http://www.portodomansomt.com.br/#a-home">Home</a></li>
-     <li title="Localização"><a href="http://www.portodomansomt.com.br/#a-localizacao">Localização</a></li>
-     <li title="Projeto"><a href="http://www.portodomansomt.com.br/#a-projeto">Projeto</a></li>
-     <li title="Segurança / Lazer"><a href="http://www.portodomansomt.com.br/#a-seguranca-lazer">Segurança / Lazer</a></li>
-     <li title="Contato"><a href="http://www.portodomansomt.com.br/#a-contato">Contato</a></li>
-    </ul>
-  </nav>
+    </div>
+  </header>
+  <div class="box-contato-obrigado">
+    <p>Sua mensagem foi enviada com sucesso!<br />
+      Aguarde que em breve entraremos em contato!</p>
+  </div>
+</body>
 
- </div>
-</header>
-
-<div class="box-contato-obrigado">
-  <p>Sua mensagem foi enviada com sucesso!<br/>
-    Aguarde que em breve entraremos em contato!</p>
-</div>
-
-<!-- Facebook Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', '1218055081555614');
-fbq('track', "PageView");</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1218055081555614&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Facebook Pixel Code -->
-
-
-<!-- Google Code for Leads Conversion Page -->
-<script type="text/javascript">
-/* <![CDATA[ */
-var google_conversion_id = 925617470;
-var google_conversion_language = "en";
-var google_conversion_format = "3";
-var google_conversion_color = "ffffff";
-var google_conversion_label = "IRsQCMq2iGUQvpqvuQM";
-var google_remarketing_only = false;
-/* ]]> */
-</script>
-<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-</script>
-<noscript>
-<div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/925617470/?label=IRsQCMq2iGUQvpqvuQM&amp;guid=ON&amp;script=0"/>
-</div>
-</noscript>
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-71480442-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
- </body>
 </html>

@@ -102,7 +102,7 @@ header {
 }
 #a-contato {
  width: 100%;
- height: 550px !important;
+ height: 580px !important;
  float: left;
  position: relative;
  background-color: #15375c;
@@ -167,7 +167,7 @@ header {
 }
 .info-form {
  width: 100% !important;
- height: 160px;
+ height: 170px;
  float: left;
 }
 .info-form figure figcaption {
@@ -180,6 +180,25 @@ header {
 }
 .box_desk {
  display: none;
+}
+
+.box-contato-obrigado {
+  width: 100%;
+  margin: 20% auto 0;
+  left: auto;
+  position: relative;
+  float: left;
+ }
+ .box-contato-obrigado p {
+  color: #15375c;
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+ }
+ .box-regiao {
+	width: 100%;
+	margin: 0 auto 0px;
+	position: relative;
 }
     
 } /*End Mobile Styles*/
