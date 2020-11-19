@@ -101,7 +101,6 @@ header {
 }
 #a-contato {
  width: 100%;
- height: 580px !important;
  float: left;
  position: relative;
  background-color: #15375c;
@@ -166,8 +165,8 @@ header {
 }
 .info-form {
  width: 100% !important;
- height: 170px;
  float: left;
+ margin-bottom: 20px;
 }
 .info-form figure figcaption {
  font-size: 15px !important;
