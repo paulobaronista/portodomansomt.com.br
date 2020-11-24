@@ -418,7 +418,7 @@ header {
 	float: left;
 	position: relative;
 	background-color: #15375c;
-	padding-bottom: 50px;;
+	padding-bottom: 50px;
 }
 .box-contato {
 	width: 100%;
@@ -568,4 +568,62 @@ header {
 
 /* Hack ie10 */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+}
+
+.cookies {
+	position: fixed;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 9999;
+	height: 100%;
+	top: 0;
+	display: none;
+}
+.cookies .box {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: bottom;
+	align-items: flex-end;
+}
+.cookies .box .box-cookies {
+	width: 100%;
+	max-width: 900px;
+	background-color: #fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 10px 20px 10px;
+	margin: 0 auto 20px;
+}
+
+.cookies .box .box-cookies p {
+	font-family: "FuturaStd-Light";
+	font-weight: 300;
+	font-style: normal;
+	color: #000;
+	font-size: 15px;
+	line-height: 19px;
+}
+
+.cookies .box .box-cookies .btn_cookie {
+	font-family: "FuturaStd-Light";
+	font-weight: 900;
+	font-style: normal;
+	font-size: 20px;
+	line-height: 20px;
+	background: #48c2c3;
+	color: #15375c;
+	border: 0px solid transparent;
+	border-radius: 5px;
+	padding: 14px 30px 12px;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+}
+.cookies .box .box-cookies .box-text,
+.cookies .box .box-cookies .box-btn {
+	display: table-cell;
+	vertical-align: middle;
 }
